@@ -109,8 +109,11 @@ class Main:
                     course_to_enroll = course
                     break
             if course_to_enroll:
-                student_to_enroll.add_course(course_to_enroll)
-                print("Course added to student successfully.")
+                if course_to_enroll.course_level == student_to_enroll.student_level:
+                    student_to_enroll.add_course(course_to_enroll)
+                    print("Course added to student successfully.")
+                else:
+                    print("Course not added. Student and course have different levels.")
             else:
                 print("Course not found.")
         else:
